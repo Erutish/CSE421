@@ -1,0 +1,73 @@
+pc1 
+
+
+C:\>ipconfig /all
+
+C:\>ping 10.10.1.18
+
+C:\>tracert 10.10.1.18
+
+pc3
+
+
+C:\>ipconfig /all
+C:\>tracert 10.10.1.98
+
+
+R1
+
+
+R1>en
+R1#show ip int brief
+R1#show ip route
+
+R2
+
+
+R1#show ip route
+
+R2#show ip int brief
+
+R2#config t
+
+R2(config)#int s0/0/0
+R2(config-if)#ip add 10.10.1.5 255.255.255.252
+R2(config-if)#no shut
+R2(config-if)#exit
+R2(config)#exit
+
+R2#sh ip int brief
+
+
+R3
+
+
+R3#sh ip int brief
+
+
+
+PC1 
+
+
+
+C:\>ping 10.10.1.18
+C:\>tracert 10.10.1.18
+
+
+
+
+
+Pc2//C:\>ipv6config /all
+pc4 // C:\>ipv6config /all
+pc2// C:\>ping 2001:DB8:1:4::2
+pc2 // C:\>tracert 2001::DB8:1:4::2
+pc4 // C:\>tracert 2001:DB8:1:1::2
+
+
+
+
+R3#sh ip int brief 
+R3#sh ipv6 int brief
+pc4// C:\>tracert 2001:DB8:1:1::2
+pc2 // C:\>tracert 2001:DB8:1:4::2
+
